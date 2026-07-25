@@ -91,7 +91,7 @@
 ## ✨ 核心功能
 
 ### 1. Supervisor 编排模式
-**什么是Supervisor？** 就像一个项目经理，接到需求后分配给不同专家处理，最后汇总结果。
+ 就像一个项目经理，接到需求后分配给不同专家处理，最后汇总结果。
 
 | 特性 | 说明 |
 |------|------|
@@ -101,7 +101,7 @@
 | 断点恢复 | 使用LangGraph Checkpoint，对话可中断续接 |
 
 ### 2. 分层记忆系统
-**为什么需要三层记忆？** 类似人类记忆：工作桌(工作记忆) + 笔记本(短期) + 大脑长期记忆。
+ 类似人类记忆：工作桌(工作记忆) + 笔记本(短期) + 大脑长期记忆。
 
 | 记忆层 | 存储位置 | 生命周期 | 延迟 | 用途 |
 |--------|----------|----------|------|------|
@@ -110,7 +110,7 @@
 | **长期记忆** | FAISS/Milvus 向量库 | 永久 | 10-50ms | 知识库、用户画像、历史工单 |
 
 ### 3. MCP 工具协议
-**什么是MCP？** Model Context Protocol，AI模型调用外部工具的标准协议，类似HTTP规范了Web通信。
+ Model Context Protocol
 
 ```json
 {
@@ -134,7 +134,7 @@
 - `user_profile` — 用户画像查询
 
 ### 4. RAG 知识检索
-**什么是RAG？** Retrieval-Augmented Generation，先从知识库检索相关内容，再让AI生成回答，避免AI"瞎编"。
+ Retrieval-Augmented Generation，先从知识库检索相关内容，再让AI生成回答，避免AI"瞎编"。
 
 ```
 用户问题: "怎么退款？"
@@ -196,7 +196,7 @@
 - 一个 OpenAI API Key（或其他LLM的Key）
 - Docker（可选，用于一键启动）
 
-### 方式一：Docker 一键启动（推荐新手）
+### Docker 一键启动
 
 ```bash
 # 1. 克隆项目
@@ -215,7 +215,7 @@ docker-compose up -d
 # 追踪UI:  http://localhost:16686 (Jaeger)
 ```
 
-### 方式二：Python 版本（直接运行）
+### （直接运行）
 
 ```bash
 # 进入Python实现目录
@@ -275,7 +275,7 @@ smart-cs-multi-agent/
 
 ### Supervisor 编排核心逻辑（Python）
 
-这是整个系统最重要的部分，理解了这个代码，面试时就能讲清楚多Agent协作原理：
+这是整个系统最重要的部分，
 
 ```python
 # python-impl/agents/supervisor.py
