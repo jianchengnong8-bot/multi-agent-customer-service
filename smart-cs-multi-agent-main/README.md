@@ -1,6 +1,5 @@
 # 🤖 智能客服多Agent系统
 
-> **企业级面试项目全攻略** — 面向金融/电商场景，包含 Python / Java / Go 三语言完整实现 + 配套面试材料，从零到面试一站搞定。
 
 [![Python](https://img.shields.io/badge/Python-3.11+-blue?logo=python)](https://www.python.org/)
 [![Java](https://img.shields.io/badge/Java-17+-orange?logo=openjdk)](https://openjdk.org/)
@@ -16,11 +15,9 @@
 - [系统架构](#-系统架构)
 - [核心功能](#-核心功能)
 - [技术栈](#-技术栈)
-- [三语言实现对比](#-三语言实现对比)
 - [快速开始](#-快速开始)
 - [项目结构](#-项目结构)
 - [核心代码解析](#-核心代码解析)
-- [面试准备材料](#-面试准备材料)
 - [参考项目](#-参考项目)
 - [安全说明](#-安全说明)
 
@@ -30,17 +27,7 @@
 
 本项目是一个**企业级多Agent智能客服系统**，模拟真实金融/电商公司的客服场景。系统由多个专业AI Agent协同工作，自动处理用户咨询、工单创建、知识检索等任务。
 
-**这个项目能帮你做什么？**
 
-- ✅ **面试加分项**：拥有一个真实完整的多Agent项目，不再只是CRUD
-- ✅ **三语言实现**：Python/Java/Go均有完整代码，适配不同岗位需求
-- ✅ **面试材料齐全**：简历模板、STAR话术、八股文题库一应俱全
-- ✅ **学习参考**：代码有详细注释，架构文档有图文说明
-
-**适合人群：**
-- 准备AI/后端岗位面试的同学
-- 想了解多Agent系统架构的开发者
-- 对LangGraph/Spring AI/Eino感兴趣的工程师
 
 ---
 
@@ -200,18 +187,6 @@
 
 ---
 
-## 🔀 三语言实现对比
-
-| 维度 | Python (LangGraph) | Java (Spring AI) | Go (Eino) |
-|------|-------------------|------------------|-----------|
-| **目录** | [`python-impl/`](./python-impl/) | [`java-impl/`](./java-impl/) | [`go-impl/`](./go-impl/) |
-| **编排框架** | LangGraph StateGraph | Spring AI Agent | Eino Graph/Workflow |
-| **状态管理** | TypedDict + Checkpoint | POJO | struct |
-| **并行方式** | asyncio | CompletableFuture | goroutine |
-| **生态** | LangSmith / LangServe | Spring 全家桶 | CloudWeGo |
-| **适合场景** | AI原型、数据科学团队 | 企业级金融/银行 | 高并发云原生微服务 |
-| **生产成熟度** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
-| **面试亮点** | 最主流AI开发栈 | 大厂Java面试必考 | 字节/腾讯Go岗位 |
 
 ---
 
@@ -264,36 +239,7 @@ curl -X POST http://localhost:8000/chat \
   -d '{"user_id": "user_001", "message": "我想查询订单状态"}'
 ```
 
-### 方式三：Java 版本
 
-```bash
-cd java-impl
-
-# 需要 Java 17+ 和 Maven 3.8+
-mvn clean package -DskipTests
-
-# 运行
-java -jar target/smart-cs-agent-1.0.0.jar
-
-# 或者直接用Maven运行
-mvn spring-boot:run
-```
-
-### 方式四：Go 版本
-
-```bash
-cd go-impl
-
-# 需要 Go 1.22+
-go mod tidy
-
-# 运行
-go run main.go
-
-# 或者编译后运行
-go build -o smart-cs-agent .
-./smart-cs-agent
-```
 
 ---
 
@@ -305,16 +251,6 @@ smart-cs-multi-agent/
 ├── 📄 README.md                    ← 你现在看的这个文件
 ├── 📄 docker-compose.yml           ← 一键启动所有服务
 ├── 📄 LICENSE                      ← MIT开源协议
-│
-├── 📂 docs/                        ← 文档目录
-│   ├── 📄 architecture.md          ← 架构设计文档（含流程图）
-│   ├── 📄 code-walkthrough.md      ← 核心代码逐行解析
-│   ├── 📄 deployment.md            ← 生产环境部署指南
-│   └── 📂 interview/               ← 面试准备材料
-│       ├── 📄 resume-template.md   ← 简历模板（STAR格式）
-│       ├── 📄 star-method.md       ← 面试话术（含多场景）
-│       ├── 📄 baguwen.md           ← 30+八股文题库+详细答案
-│       └── 📄 project-qa.md        ← 20+项目深度追问+应对策略
 │
 ├── 📂 python-impl/                 ← Python实现 (LangGraph + FastAPI)
 │   ├── 📄 requirements.txt         ← Python依赖包
@@ -330,19 +266,7 @@ smart-cs-multi-agent/
 │   ├── 📂 tracing/                 ← OpenTelemetry追踪
 │   └── 📂 api/                     ← FastAPI接口层
 │
-├── 📂 java-impl/                   ← Java实现 (Spring AI + Spring Boot)
-│   ├── 📄 pom.xml                  ← Maven依赖配置
-│   ├── 📄 Dockerfile
-│   └── 📂 src/main/java/com/smartcs/
-│
-└── 📂 go-impl/                     ← Go实现 (Eino框架)
-    ├── 📄 go.mod                   ← Go依赖管理
-    ├── 📄 main.go                  ← 程序入口
-    ├── 📄 Dockerfile
-    ├── 📂 agent/                   ← Agent实现
-    ├── 📂 memory/                  ← 记忆系统
-    ├── 📂 mcp/                     ← MCP协议
-    └── 📂 tracing/                 ← 链路追踪
+
 ```
 
 ---
@@ -398,9 +322,6 @@ def create_supervisor_graph():
     return graph.compile(checkpointer=MemorySaver())
 ```
 
-**面试时怎么讲这段代码？**
-> "我们用LangGraph的StateGraph构建了一个有向图，Supervisor作为中心节点负责路由，子Agent各司其职。所有回复都强制经过合规审查节点，这是金融场景的合规要求。MemorySaver提供检查点功能，支持对话断点续接。"
-
 ### MCP工具协议实现
 
 ```python
@@ -429,32 +350,7 @@ order_query_tool = {
 
 ---
 
-## 📚 面试准备材料
 
-配套完整面试资料，帮你从"能看懂代码"到"面试时能流畅讲清楚"：
-
-| 文档 | 内容说明 | 链接 |
-|------|----------|------|
-| **简历模板** | STAR法则项目经历写法，覆盖Python/Java/Go不同岗位角度 | [查看](./docs/interview/resume-template.md) |
-| **STAR面试话术** | "请介绍你的项目"等高频问题的标准回答模板 | [查看](./docs/interview/star-method.md) |
-| **八股文题库** | 30+高频面试题 + 详细答案 + 追问应对策略 | [查看](./docs/interview/baguwen.md) |
-| **项目深度追问** | 面试官最爱问的20+深度问题 + 踩坑分享 | [查看](./docs/interview/project-qa.md) |
-| **架构设计文档** | 完整流程图、时序图、技术选型对比分析 | [查看](./docs/architecture.md) |
-| **代码讲解文档** | 核心模块逐行解析，设计模式说明 | [查看](./docs/code-walkthrough.md) |
-| **部署指南** | Docker一键部署、生产环境配置、监控告警 | [查看](./docs/deployment.md) |
-
-### 常见面试问题预览
-
-**Q: 为什么用Supervisor模式而不是让Agent直接互相调用？**
-> A: Supervisor模式的优势在于集中控制，便于追踪和调试；避免Agent之间形成循环依赖；Supervisor可以做全局优化，比如并行调度多个Agent；出错时有统一的错误处理和回退机制。
-
-**Q: 三层记忆的设计原则是什么？**
-> A: 参考了人类认知的记忆模型。工作记忆对应当前注意力焦点，速度最快但容量有限；短期记忆用Redis实现30分钟TTL，保持对话上下文连贯性；长期记忆用向量数据库存储知识库和用户历史，支持语义相似度检索。
-
-**Q: MCP协议相比直接调用函数有什么优势？**
-> A: MCP是标准化协议，工具描述用JSON Schema，AI可以自动发现和理解工具能力，不需要硬编码工具调用逻辑；支持动态工具注册，新增工具不需要修改Agent代码；协议层做了权限控制和参数验证。
-
----
 
 ## 📖 参考项目
 
